@@ -1,12 +1,18 @@
-import { Header } from "./components/Header"
+import { Header } from "./components/Header";
+import { NewTaskBar } from "./components/NewTaskBar";
+
+import styles from './App.module.css';
 
 function App() {
-
   return (
-    <main>
+    <div className={styles.app}>
       <Header />
-    </ main>
-  )
+
+      <main className={styles.main}>
+        <NewTaskBar />
+      </main>
+    </div>
+  );
 }
 
-export default App
+export default App;
