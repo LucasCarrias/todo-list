@@ -1,7 +1,8 @@
 import { Header } from "./components/Header";
 import { NewTaskBar } from "./components/NewTaskBar";
+import { Task } from "./components/Task";
 
-import styles from './App.module.css';
+import styles from "./App.module.css";
 
 function App() {
   return (
@@ -10,6 +11,8 @@ function App() {
 
       <main className={styles.main}>
         <NewTaskBar />
+
+        <Task />
       </main>
     </div>
   );
