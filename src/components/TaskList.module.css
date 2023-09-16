@@ -1,0 +1,38 @@
+.taskList {
+  margin-top: 4rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.createdTasks, .finishedTasks {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+
+.createdTasks > div {
+  color: var(--blue);
+}
+
+.finishedTasks > div {
+  color: var(--purple);
+}
+
+.badge {
+  border-radius: 999px;
+  background: var(--Gray-400, #333);
+  padding: 0.125rem 0.5rem;
+
+  color: var(--Gray-200, #d9d9d9);
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}

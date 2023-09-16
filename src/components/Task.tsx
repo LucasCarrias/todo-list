@@ -1,34 +1,39 @@
-import { useState } from "react";
 import { Check, Circle, Trash } from "@phosphor-icons/react";
+import { TaskType } from "../types/TaskType";
 
 import styles from "./Task.module.css";
 
 const ICON_SIZE = 24;
 
-export function Task() {
-  const [isChecked, setIsChecked] = useState(false);
+type TaskProps = {
+  task: TaskType;
+  onCheckTask: (id: string) => void;
+  onDeleteTask: (id: string) => void;
+};
 
+export function Task({ task, onCheckTask, onDeleteTask }: TaskProps) {
   function handleOnChecked() {
-    setIsChecked((state) => !state);
+    onCheckTask(task.id);
+  }
+
+  function handleOnDeleted() {
+    onDeleteTask(task.id);
   }
 
   return (
     <div className={styles.task}>
       <button onClick={handleOnChecked}>
-        {isChecked ? (
+        {task.isChecked ? (
           <Check className={styles.check} size={ICON_SIZE} />
         ) : (
           <Circle className={styles.circle} size={ICON_SIZE} />
         )}
       </button>
 
-      <span className={isChecked ? styles.checkedContent : styles.content}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat,
-        aperiam necessitatibus deleniti quas quia nesciunt quae ducimus
-        aspernatur ab maiores doloremque reiciendis nihil labore voluptatem, eos
-        enim eum! Ipsa, ea?
+      <span className={task.isChecked ? styles.checkedContent : styles.content}>
+        {task.content}
       </span>
-      <button>
+      <button onClick={handleOnDeleted}>
         <Trash className={styles.trash} size={ICON_SIZE} />
       </button>
     </div>
